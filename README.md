@@ -13,9 +13,10 @@ Dự án này sử dụng [LocalStack](https://localstack.cloud/) để giả l�
 
 - [Docker](https://www.docker.com/) và [Docker Compose](https://docs.docker.com/compose/) đã được cài đặt.
 - [Terraform](https://www.terraform.io/downloads.html) đã được cài đặt.
-- Quyền truy cập vào terminal.
 
+## Sơ đồ tổng quan
 ![AWS Network](https://miro.medium.com/v2/resize:fit:720/format:webp/0*kA5ZBZAUAZ37dJtW)
+
 ## Hướng dẫn chạy
 
 ### 1. Khởi động LocalStack
