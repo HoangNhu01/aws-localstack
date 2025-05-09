@@ -9,7 +9,7 @@ crash.log
 *.tfplan
 
 # Ignore Terraform variables files
-*.tfvars
+# *.tfvars
 *.tfvars.json
 terraform/.terraform/
 
