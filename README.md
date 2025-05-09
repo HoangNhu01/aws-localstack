@@ -13,6 +13,7 @@ Dự án này sử dụng [LocalStack](https://localstack.cloud/) để giả l�
 
 - [Docker](https://www.docker.com/) và [Docker Compose](https://docs.docker.com/compose/) đã được cài đặt.
 - [Terraform](https://www.terraform.io/downloads.html) đã được cài đặt.
+- [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html) đã được cài đặt.
 
 ## Sơ đồ tổng quan
 ![AWS Network](https://miro.medium.com/v2/resize:fit:720/format:webp/0*kA5ZBZAUAZ37dJtW)
