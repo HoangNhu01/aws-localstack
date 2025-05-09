@@ -1,0 +1,40 @@
+# Ignore Terraform state files
+*.tfstate
+*.tfstate.*
+
+# Ignore Terraform crash logs
+crash.log
+
+# Ignore Terraform plan files
+*.tfplan
+
+# Ignore Terraform variables files
+*.tfvars
+*.tfvars.json
+terraform/.terraform/
+
+# Ignore LocalStack data and logs
+.localstack/
+volume/
+
+# Ignore Docker-related files
+docker-compose.override.yml
+*.env
+
+# Ignore SSH keys and sensitive files
+ec2/*.pem
+ec2/*.key
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+*.bak
+
+# Ignore Python virtual environments (if applicable)
+venv/
+__pycache__/
+*.pyc

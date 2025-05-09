@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  localstack:
+    container_name: localstack
+    image: localstack/localstack:latest
+    ports:
+      - "4566:4566"           # Thêm ràng buộc địa chỉ IP
+      - "4510-4559:4510-4559"  # Giới hạn truy cập từ localhost
+    environment:
+      - SERVICES=s3,sqs,dynamodb,lambda,apigateway,cloudformation,cloudwatch,ec2,iam,kinesis,route53,redshift,secretsmanager,ses,sns,sts
+      - DEBUG=${DEBUG:-0}
+      - DATA_DIR=/var/lib/localstack/data  # Thay đổi thư mục data trong container
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - AWS_DEFAULT_REGION=us-east-1
+      - LAMBDA_EXECUTOR=docker
+      - HOST_TMP_FOLDER=./.localstack/tmp  # Dùng thư mục trong project thay vì /tmp
+      - PERSISTENCE=1                     # Bật persistence
+      - LOCALSTACK_API_KEY=               # Thêm nếu dùng bản Pro
+      - LOCALSTACK_AUTH_TOKEN=s-LILEpAnA-2013-lANu-xoWo-hIkALiYOd54f
+    volumes:
+      - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    networks:
+      ci-network:
+        ipv4_address: 172.19.0.90
+    restart: unless-stopped              # Tự động khởi động lại nếu bị dừng
+
+networks:
+  ci-network:
+    name: jenkins_ci-network
+    external: true
