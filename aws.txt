@@ -1,3 +1,4 @@
+#### S3 ###
 aws --endpoint-url=http://localhost:4566 s3 ls s3://my-terraform-bucket/
 ## kiểm tra dữ liệu trong bucket
 
@@ -6,12 +7,6 @@ aws --endpoint-url=http://localhost:4566 s3 rm s3://my-terraform-bucket/ --recur
 
 aws --endpoint-url=http://localhost:4566 s3api delete-bucket --bucket my-terraform-bucket
 ## xóa bucket
-
-aws configure
-## cấu hình User IAM cho aws cli
-
-aws --endpoint-url=http://localhost:4566
-## cấu hình url môi trường aws mặc định
 
 | Storage Class         | Mô tả                                                   | Thời gian truy xuất  |
 | --------------------- | ------------------------------------------------------- | -------------------- |
@@ -22,12 +17,32 @@ aws --endpoint-url=http://localhost:4566
 | `GLACIER`             | Lưu trữ lâu dài, chi phí thấp, **khôi phục chậm**       | Minutes to hours     |
 | `GLACIER_IR`          | Glacier Instant Retrieval – khôi phục nhanh hơn Glacier | Milliseconds         |
 | `DEEP_ARCHIVE`        | Lưu trữ lâu nhất, rẻ nhất, **khôi phục mất tới 12 giờ** | Hours (up to 12 hrs) |
+## Bảng phân biệt các Storage Class lưu chữ lâu dài
+
+### IAM ###
+aws configure
+## cấu hình User IAM cho aws cli
+
+aws --endpoint-url=http://localhost:4566
+## cấu hình url môi trường aws mặc định
 
 aws --endpoint-url=http://localhost:4566 iam create-access-key --user-name hoangns
 ## Tạo access và secret key cho user
 
+### EC2 ###
 aws --endpoint-url=http://localhost:4566 ec2 create-key-pair --key-name ec2-local-key-1 --query 'KeyMaterial' --output text > my-local-key.pem
 ## Tạo 1 SSH key pair cho ec2
 
 aws ec2 describe-vpcs  --endpoint-url=http://localhost:4566  (--profile localstack : dùng để phân biệt aws - localstack)
 ## Xem thông tin vpcs đang tồn tại
+
+aws --endpoint-url=http://localhost:4566 ec2 describe-instances --query "Reservations[*].Instances[*].[InstanceId,State.Name]" --output table
+## Xem thông tin các ec2 instances dưới dạng table
+
+
+### EIP ###
+aws ec2 describe-addresses  --query "Addresses[*].[PublicIp,AllocationId,InstanceId]"  --output table --endpoint-url=http://localhost:4566
+## Xem tất cả AllocationId đang gán với ec2, natgw, ... nào
+
+aws ec2 release-address --allocation-id eipalloc-a1ab3fe440b469665  --endpoint-url=http://localhost:4566
+## xóa ip

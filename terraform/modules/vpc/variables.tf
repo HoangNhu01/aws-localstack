@@ -3,7 +3,7 @@ variable "vpc_cidr" {
 }
 
 variable "public_subnets" {
-  type        = list(string)
+  type = list(string)
   default = [
     "172.20.0.0/20",  # 172.20.0.0 – 172.20.15.255
     "172.20.16.0/20", # 172.20.16.0 – 172.20.31.255
@@ -12,7 +12,7 @@ variable "public_subnets" {
 }
 
 variable "private_subnets" {
-  type        = list(string)
+  type = list(string)
   default = [
     "172.20.48.0/20", # 172.20.48.0 – 172.20.63.255
     "172.20.64.0/20", # 172.20.64.0 – 172.20.79.255
@@ -21,7 +21,7 @@ variable "private_subnets" {
 }
 
 variable "isolated_subnets" {
-  type        = list(string)
+  type = list(string)
   default = [
     "172.20.96.0/20", # v.v...
     "172.20.112.0/20",

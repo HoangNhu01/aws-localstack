@@ -1,5 +1,5 @@
 output "available_azs" {
-  value       = data.aws_availability_zones.available.names
+  value = data.aws_availability_zones.available.names
 }
 
 output "public_subnet_ids" {
@@ -11,5 +11,5 @@ output "private_subnet_ids" {
 }
 
 output "vpc_id" {
-  value       = aws_vpc.main.id
+  value = aws_vpc.main.id
 }

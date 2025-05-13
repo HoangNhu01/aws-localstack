@@ -12,5 +12,5 @@ variable "tags" {
 }
 
 variable "aws_vpc_id" {
-  type    = string
+  type = string
 }
