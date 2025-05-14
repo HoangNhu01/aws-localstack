@@ -46,8 +46,8 @@ module "vpc" {
   }
 }
 
-module "gateway" {
-  source            = "./modules/gateway"
+module "igw" {
+  source            = "./modules/igw"
   public_subnet_ids = module.vpc.public_subnet_ids
   tags = {
     Name        = "my_gateway"
@@ -63,4 +63,7 @@ module "nat" {
   aws_vpc_id         = module.vpc.vpc_id
 }
 
-
+# module "cloudfont" {
+#   source                      = "./modules/cloudfont"
+#   bucket_regional_domain_name = module.s3.bucket_regional_domain_name
+# }

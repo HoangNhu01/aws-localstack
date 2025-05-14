@@ -1,0 +1,11 @@
+S3: lưu các loại obj (file, image, artifact, ...)
+EC2: máy ảo dùng để triển khai ứng dụng
+VPC: mạng ảo cho các dịnh vụ triển khai
+IGW: gateway cho phép các dịnh vụ truy cập được internet
+NAT: cho phép các dịch vụ truy cập internet với 1 IP public
+ALB: điều phối tảng tầng ứng dụng có hỗ trợ cơ chế routing
+NLB: điều phối tảng tầng mạng, nâng cao tốc độ 
+EIP: ip tĩnh public
+API GW: routing, versioning
+WAF: firewall cho các service: API GW, ALB
+
