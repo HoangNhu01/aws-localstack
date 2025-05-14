@@ -16,5 +16,18 @@ variable "tags" {
 }
 
 variable "aws_vpc_id" {
-  type    = string
+  type = string
+}
+
+variable "private_subnet_ids" {
+  type = list(string)
+}
+
+variable "alb_sg_id" {
+  type = string
+}
+
+
+variable "aws_lb_target_group_arn" {
+  type = string
 }

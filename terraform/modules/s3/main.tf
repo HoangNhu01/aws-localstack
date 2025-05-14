@@ -2,10 +2,10 @@ resource "aws_s3_bucket" "this" {
   bucket        = var.bucket_name
   force_destroy = false # Ngăn chặn xóa bucket khi còn dữ liệu
 
-#   tags = {
-#     Environment = "Production"
-#     Owner       = "DevOps"
-#   }
+  #   tags = {
+  #     Environment = "Production"
+  #     Owner       = "DevOps"
+  #   }
 }
 
 # Bucket Policy chỉ cho phép truy cập từ IAM Role/VPC cụ thể
